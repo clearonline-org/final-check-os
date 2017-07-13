@@ -102,3 +102,18 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## License
 BSD-3-Clause
+
+[travis-image]: https://travis-ci.org/clearonline-org/final-check-os.svg?branch=master
+[travis-url]: https://travis-ci.org/clearonline-org/final-check-os
+
+[codecov-image]: https://codecov.io/gh/clearonline-org/final-check-os/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/clearonline-org/final-check-os
+
+[dependency-image]: https://gemnasium.com/badges/github.com/clearonline-org/final-check-os.svg?style=flat
+[dependency-url]: https://gemnasium.com/github.com/clearonline-org/final-check-os
+
+[climate-image]: https://codeclimate.com/github/clearonline-org/final-check-os/badges/gpa.svg
+[climate-url]: https://codeclimate.com/github/clearonline-org/final-check-os
+
+[license-image]: http://img.shields.io/badge/license-BSD-3-Clause-blue.svg?style=flat
+[license-url]: LICENSE
