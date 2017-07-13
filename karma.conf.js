@@ -39,6 +39,19 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: false
+    singleRun: false,
+    // source: https://github.com/angular/angular-cli/wiki/stories-code-coverage
+   coverageIstanbulReporter: {
+  reports: [ 'html', 'lcovonly' ],
+  fixWebpackSourcePaths: true,
+  thresholds: {
+    statements: 50,
+    lines: 50,
+    branches: 50,
+    functions: 50
+  }
+}
+    
+    
   });
 };
