@@ -30,11 +30,11 @@ before_script:
 - npm install -g angular-cli
 - npm install -g karma
 - npm install
-- ng build
+- npm run ng -- build
 
 script: 
 - karma start config/karma.conf.js --single-run
-- ng test --watch=false --code-coverage
+- npm run ng -- test --watch=false --code-coverage
 - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
 - codecov
 
