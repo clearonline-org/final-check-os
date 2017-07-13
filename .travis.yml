@@ -26,6 +26,7 @@ install:
   - npm install -g codecov
  
 before_script:
+- cp src/environments/environment.sample.ts src/environments/environment.ts
 - npm install -g angular-cli
 - npm install -g karma
 - npm install
