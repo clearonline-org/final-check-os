@@ -1,0 +1,149 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+
+
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header" data-background-color="green">
+            <i class="material-icons">info_outline</i>
+          </div>
+          <div class="card-content">
+            <p class="category text-success">200 Ok</p>
+            <h3 class="title">{{logSummary?.OK200.totalLogs}}<small>logs</small></h3>
+          </div>
+          <div (click)="tootgleApplicationList($event, DashboardWidgetTypes.OK200)" class="card-footer">
+            <div class="stats">
+
+              <i class="material-icons text-primary">list</i>
+              <a>Breakdown </a>
+              <span class="logs"><i class="material-icons text-primary">{{dashboardWidgets.OK200.show? 'keyboard_arrow_up': 'keyboard_arrow_down'}}</i></span>
+            </div>
+          </div>
+
+
+          <!--START Application list-->
+          <div *ngIf="dashboardWidgets.OK200.show">
+            <div *ngFor="let appSummary of logSummary?.OK200.breakdown" class="card-footer">
+              <div class="stats">
+                <i class="material-icons text-primary">settings_ethernet</i>
+                <a href="/#/dashboard/{{appSummary.id}}/request-log?status[]=200">
+                {{appSummary.name}}
+                <span class="logs">{{appSummary.logs}}</span>
+              </a>
+              </div>
+            </div>
+          </div>
+          <!--END Application list-->
+
+
+
+        </div>
+      </div>
+
+
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header" data-background-color="red">
+            <i class="material-icons">info_outline</i>
+          </div>
+          <div class="card-content">
+            <p class="category text-danger">500 Error</p>
+            <h3 class="title">{{logSummary?.ERROR500.totalLogs}}<small>logs</small></h3>
+          </div>
+          <div (click)="tootgleApplicationList($event, DashboardWidgetTypes.ERROR500)" class="card-footer">
+            <div class="stats">
+
+              <i class="material-icons text-primary">list</i>
+              <a>Breakdown </a>
+              <span class="logs"><i class="material-icons text-primary">{{dashboardWidgets.ERROR500.show? 'keyboard_arrow_up': 'keyboard_arrow_down'}}</i></span>
+
+
+            </div>
+          </div>
+
+
+
+          <!--START Application list-->
+          <div *ngIf="dashboardWidgets.ERROR500.show">
+            <div *ngFor="let appSummary of logSummary?.ERROR500.breakdown" class="card-footer">
+              <div class="stats">
+                <i class="material-icons text-primary">settings_ethernet</i>
+                <a href="/#/dashboard/{{appSummary.id}}/request-log?status[]=500">
+                {{appSummary.name}}
+                <span class="logs">{{appSummary.logs}}</span>
+              </a>
+              </div>
+            </div>
+          </div>
+          <!--END Application list-->
+
+
+
+        </div>
+      </div>
+
+
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header" data-background-color="orange">
+            <i class="material-icons">info_outline</i>
+          </div>
+          <div class="card-content">
+            <p class="category text-warning">Others</p>
+            <h3 class="title">{{logSummary?.OTHER3400.totalLogs}}<small>logs</small></h3>
+          </div>
+          <div (click)="tootgleApplicationList($event, DashboardWidgetTypes.OTHER3400)" class="card-footer">
+            <div class="stats">
+
+              <i class="material-icons text-primary">list</i>
+              <a>Breakdown </a>
+              <span class="logs"><i class="material-icons text-primary">{{dashboardWidgets.OTHER3400.show? 'keyboard_arrow_up': 'keyboard_arrow_down'}}</i></span>
+
+            </div>
+          </div>
+
+
+          <!--START Application list-->
+          <div *ngIf="dashboardWidgets.OTHER3400.show">
+            <div *ngFor="let appSummary of logSummary?.OTHER3400.breakdown" class="card-footer">
+              <div class="stats">
+                <i class="material-icons text-primary">settings_ethernet</i>
+                <a href="/#/dashboard/{{appSummary.id}}/request-log?status[]=300&status[]=400">
+                {{appSummary.name}}
+                <span class="logs">{{appSummary.logs}}</span>
+              </a>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+
+
+
+    </div>
+    <div class="row ip-address-map">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+
+
+        <div class="card">
+          <div class="card-header" data-background-color="blue">
+            <h4 class="title">Request map</h4>
+            <p class="category">Here you will see where all requests originated from</p>
+          </div>
+          <div class="card-content">
+
+            TODO map goes in here
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>

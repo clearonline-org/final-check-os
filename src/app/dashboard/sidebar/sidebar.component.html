@@ -1,0 +1,24 @@
+<div class="logo">
+    <!--<a href="/#/dashboard" (click)="goToRoute($event, '/dashboard')" class="simple-text">-->
+    <a href="javascript:void(0);" (click)="goToRoute($event, '/dashboard')" class="simple-text">
+        <div class="logo-img">
+            <img src="../../assets/img/sunny-blue.png" />
+        </div>
+        Final Check
+    </a>
+</div>
+<div class="sidebar-wrapper">
+    <div class="nav-container">
+        <ul class="nav">
+            <!--routerLinkActive=""-->
+            <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
+                <!--<a [routerLink]="[menuItem.path]">-->
+                <!--<a [href]="'/#'+menuItem.path" (click)="goToRoute($event, menuItem.path)">-->
+                <a href="javascript:void(0);" (click)="goToRoute($event, menuItem.path)">
+                    <i class="material-icons">{{menuItem.icon}}</i>
+                    <p>{{menuItem.title}}</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

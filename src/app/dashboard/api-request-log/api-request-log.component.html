@@ -1,0 +1,110 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="card card-nav-tabs card-plain">
+          <div class="card-header" data-background-color="purple">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <!--<span class="nav-tabs-title">Application:</span>-->
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="active">
+                    <a href="#profile" data-toggle="tab">
+                      <i class="material-icons">list</i> List
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#messages" data-toggle="tab">
+                      <i class="material-icons">map</i> Map
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                </ul>
+
+                <ul class="nav" style="position: absolute; right:1em; top: -1em;">
+                  <li class="dropdown">
+
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="true">
+    Application: APP 1
+    <span class="caret"></span>
+  </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li *ngFor="let localApp of appList"><a href="/#/dashboard/{{localApp?.id}}/request-log" style="color: black;">{{localApp?.name}}</a></li>
+                    </ul>
+
+
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+
+
+          <div class="card-content">
+            <div class="tab-content">
+              <div class="tab-pane active" id="profile">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Url</th>
+                      <th>Client Ip</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngIf="fetching | async as apiRequestList; else loading">
+
+
+
+                    <tr *ngFor="let apiRequest of apiRequestList; let i=index" [ngClass]="apiRequest?.output?.statusCode === 500? 'danger' : ''">
+                      <td>{{i+1}}</td>
+                      <td>{{apiRequest?.uri}}</td>
+                      <td>{{apiRequest?.metaData?.clientIp}}</td>
+                      <td class="td-actions text-right">
+                        <a href="/#/dashboard/{{appId}}/{{apiRequest?.id}}" rel="tooltip" title="View Details" class="btn btn-primary btn-simple btn-xs">
+                          <i class="material-icons">folder_open</i>
+                        </a>
+                        <button *ngIf="doNotShow" type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+																<i class="material-icons">close</i>
+															</button>
+                      </td>
+                    </tr>
+                  </tbody>
+
+
+                  <ng-template #loading>
+                  <tbody>
+                    
+    <div class="loader" style="top: 10em;">
+        <svg *ngIf="!errorMessage" class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+        <div *ngIf="errorMessage" class="text-danger" style="width: 400px; margin-left: -10em;">
+            {{errorMessage}}
+        </div>
+    </div>
+                  </tbody>
+    
+                  </ng-template>
+
+                </table>
+
+
+              </div>
+              <div class="tab-pane" id="messages">
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

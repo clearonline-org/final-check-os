@@ -1,0 +1,39 @@
+<div class="main" style="background-image: url('/assets/img/default.jpg')">
+
+    <!--    Change the image source '/images/default.jpg' with your favourite image.     -->
+
+    <div class="cover blue" data-color="blue"></div>
+
+    <!--   You can change the black color for the filter with those colors: blue, green, red, orange       -->
+
+    <div class="container">
+        <h1 class="logo cursive">
+            Final Check
+        </h1>
+        <!--  H1 can have 2 designs: "logo" and "logo cursive"           -->
+
+        <div class="content">
+            <h4 class="motto">
+                Easy way to monitor your network API calls
+            </h4>
+            <div class="subscribe">
+                <div class="row">
+                    <div class="col-md-12" style="text-align: center;">
+
+                        <!--<div class="form-group">-->
+                             <!--href="/#/register"-->
+                            <a [routerLink]="['/register']" class="btn btn-danger btn-fill">
+                              <i class="fa fa-user-plus" aria-hidden="true"></i> Register
+                          </a>
+                          <!--href="/#/login"-->
+                            <a [routerLink]="['/login']" class="btn btn-success btn-fill">
+                              <i class="fa fa-sign-in" aria-hidden="true"></i> Login
+                          </a>
+                        <!--</div>-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

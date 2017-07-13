@@ -1,0 +1,124 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="card card-nav-tabs card-plain">
+          <div class="card-header" data-background-color="purple">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <!--<span class="nav-tabs-title">Application:</span>-->
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="active">
+                    <a #appList (click)="resetForm($event)"  href="#profile" data-toggle="tab">
+                      <i class="material-icons">list</i> List
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a #appNewOrDetail href="#messages" data-toggle="tab">
+                      <i class="material-icons">edit</i> {{form?.value.applicationName? form?.value.applicationName: 'New'}}
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                </ul>
+
+                <ul *ngIf="loading" class="nav" style="position: absolute; right:1em; top: 0em;">
+                  <li class=""><a href="javascript:void(0)" [title]="errorMessage">Loading ...</a>
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+
+
+          <div class="card-content">
+            <div class="tab-content">
+              <div class="tab-pane active" id="profile">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Name</th>
+                      <th>Application code</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngIf="fetching | async as applicationList;">
+
+                    <tr *ngFor="let application of applicationList; let i=index">
+                      <td>{{i+1}}</td>
+                      <td>{{application?.name}}</td>
+                      <td>{{application?.appCode}}</td>
+                      <td class="td-actions text-right">
+                        <a href="/#/dashboard/{{application?.id}}/request-log" rel="tooltip" title="Show request log" class="btn btn-primary btn-simple btn-xs">
+                          <i class="material-icons">list</i>
+                        </a>
+                        <button (click)="showApplicationDetail($event, application)" type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                          <i class="material-icons">folder_open</i>
+												</button>
+                        <button *ngIf="doNotShow" (click)="removeApplication($event, application)" type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+													<i class="material-icons">close</i>
+												</button>
+                      </td>
+                    </tr>
+                  </tbody>
+
+                </table>
+
+
+
+              </div>
+              <div class="tab-pane" id="messages">
+
+
+                <form [formGroup]="form" (ngSubmit)="submitApplication($event, form.value)">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group form-black label-stacked is-empty">
+                        <label class="control-label">Application name</label>
+                        <input [formControl]="applicationName" type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <!--<div class="form-group">-->
+                        <!--<label>Description</label>-->
+                        <div class="form-group form-black label-stacked is-empty">
+                          <label class="control-label"> A few words about what your app does!</label>
+                          <textarea [formControl]="description" class="form-control" rows="3"></textarea>
+                        </div>
+                      <!--</div>-->
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <div class="form-control-feedback" style="width: 100%; position: relative; color: #fa758e;" *ngIf="!!errorMessage">{{errorMessage}}</div>
+                        <div class="form-control-feedback" style="width: 100%; position: relative; color: #ffffff;" *ngIf="loading">{{loadingMessage}}</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button (click)="closeAppDetailView($event)" *ngIf="form.value.appCode" type="button" class="btn btn-danger pull-right">Close</button>
+                  <button *ngIf="form.value.appCode" type="button" class="btn btn-primary pull-right">Update</button>
+                  <button *ngIf="!form.value.appCode" type="reset" class="btn btn-danger pull-right">Reset</button>
+                  <button *ngIf="!form.value.appCode" [disabled]="!form.valid" type="submit" class="btn btn-primary pull-right">Request code</button>
+                  <div class="clearfix"></div>
+                </form>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

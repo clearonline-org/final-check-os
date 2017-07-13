@@ -1,0 +1,376 @@
+<div class="main-content">
+    <div *ngIf="uri else loading" class="container-fluid">
+        <div class="row">
+
+
+            <div class="col-md-12">
+
+
+
+
+                <div class="card">
+                    <!--<div class="card-header" data-background-color="red">
+                        <h4 class="title">Called From UK</h4>
+                        <p class="category">Analysis shows that this request has been called 50 times in a second</p>
+                    </div>-->
+                    <!--<div class="card-header" data-background-color="green">
+                        <h4 class="title">Called From UK</h4>
+                        <p class="category">Analysis shows that this request works as expected!</p>
+                    </div>-->
+                    <div *ngIf="response?.statusCode === 200" class="card-header" data-background-color="green">
+                        <h4 class="title">{{metadata?.title}}</h4>
+                        <p class="category">{{metadata?.statusMessage}}</p>
+                    </div>
+                    <div *ngIf="response?.statusCode === 500" class="card-header" data-background-color="red">
+                        <h4 class="title">{{metadata?.title}}</h4>
+                        <p class="category">{{metadata?.statusMessage}}</p>
+                    </div>
+                    <div *ngIf="response?.statusCode !== 200 && response?.statusCode !== 500" class="card-header" data-background-color="yellow">
+                        <h4 class="title">{{metadata?.title}}</h4>
+                        <p class="category">{{metadata?.statusMessage}}</p>
+                    </div>
+                    <div class="card-content">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-2 col-md-2">
+
+                                    <div class="form-group form-black label-stacked is-empty">
+                                        <label class="control-label">Method</label>
+                                        <div class="dropdown">
+                                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="true"> {{request?.method}} <span class="caret"></span> </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                <li><a href="#">GET</a></li>
+                                                <li><a href="#">POST</a></li>
+                                                <li><a href="#">PUT</a></li>
+                                                <li><a href="#">PATCH</a></li>
+                                                <li><a href="#">DELETE</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="col-sm-10 col-md-10">
+                                    <div class="form-group form-black label-stacked is-empty">
+                                        <label class="control-label">uri</label>
+                                        <input type="text" class="form-control" [value]="uri">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Request
+                                </div>
+                            </div>
+
+
+
+
+
+                            <!--START headers display ui-->
+                            <div *ngFor="let header of request?.headers; let i = index;" class="row">
+                                
+                                <!--@TODO START optimize here-->
+                                <div *ngIf="i === 0" class="col-md-2">
+
+                                    <div class="form-group form-black label-stacked is-empty">
+                                        <label class="control-label">Headers</label>
+
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="...">
+
+                                            <button type="button" class="btn btn-primary">ADD</button>
+                                            <button type="button" class="btn btn-danger">EDIT</button>
+
+
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                                <div [ngClass]="(i === 0)? 'col-md-5 col-sm-6  col-xs-6' : 'col-md-5 col-md-offset-2 col-sm-6  col-xs-6'">
+                                    
+                                    <div class="form-group form-black label-stacked is-empty">
+                                        <label *ngIf="i === 0" class="control-label">Header</label>
+                                        <input type="text" class="form-control" [value]="header?.header">
+                                    </div>
+                                </div>
+                                <div class="col-md-5 col-sm-6  col-xs-6">
+                                    <div class="form-group form-black label-stacked is-empty">
+                                        <label *ngIf="i === 0" class="control-label">Value</label>
+                                        <input type="text" class="form-control" [value]="header?.value">
+                                    </div>
+                                </div>
+                                <!--@TODO END optimize here-->
+
+
+
+                            </div>
+                            <!--END headers display ui-->
+
+
+
+
+
+
+                            <div class="row">
+
+
+                                <div class="col-md-2">
+
+                                    <div class="form-group form-black label-stacked is-empty">
+                                        <label class="control-label">Content Type</label>
+
+                                        <div class="dropdown">
+                                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="true">
+   {{request?.contentType}}
+    <span class="caret"></span>
+  </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                <li><a href="#">Application/json</a></li>
+                                                <li><a href="#">Applicaion/xml</a></li>
+                                                <li><a href="#">Applicaion/html</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+
+
+
+
+                                <div class="col-md-10">
+                                    <div class="form-group">
+                                        <label>Payload</label>
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <!--<label class="control-label"></label>-->
+                                            <textarea class="form-control" rows="5">{{request?.payload}}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Response
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+                            <!--START headers display ui-->
+                            <div *ngFor="let header of response?.headers; let i = index;" class="row">
+                                
+                                <!--@TODO START optimize here-->
+                                <div *ngIf="i === 0" class="col-md-2">
+
+                                    <div class="form-group form-black label-stacked is-empty">
+                                        <label class="control-label">Headers</label>
+
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="...">
+
+                                            <button type="button" class="btn btn-primary">ADD</button>
+                                            <button type="button" class="btn btn-danger">EDIT</button>
+
+
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                                <div [ngClass]="(i === 0)? 'col-md-5 col-sm-6  col-xs-6' : 'col-md-5 col-md-offset-2 col-sm-6  col-xs-6'">
+                                    
+                                    <div class="form-group form-black label-stacked is-empty">
+                                        <label *ngIf="i === 0" class="control-label">Header</label>
+                                        <input type="text" class="form-control" [value]="header?.header">
+                                    </div>
+                                </div>
+                                <div class="col-md-5 col-sm-6  col-xs-6">
+                                    <div class="form-group form-black label-stacked is-empty">
+                                        <label *ngIf="i === 0" class="control-label">Value</label>
+                                        <input type="text" class="form-control" [value]="header?.value">
+                                    </div>
+                                </div>
+                                <!--@TODO END optimize here-->
+
+
+
+                            </div>
+                            <!--END headers display ui-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <div class="row">
+
+
+                                <div class="col-md-2">
+
+
+
+                                    <div class="form-group form-black label-stacked is-empty">
+                                        <label class="control-label">Content Type</label>
+
+
+                                        <div class="dropdown">
+                                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="true">
+    {{response?.contentType}}
+    <span class="caret"></span>
+  </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                <li><a href="#">Application/json</a></li>
+                                                <li><a href="#">Applicaion/xml</a></li>
+                                                <li><a href="#">Applicaion/html</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                </div>
+
+
+
+
+                                <div class="col-md-10">
+                                    <div class="form-group">
+                                        <label>Payload</label>
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <!--<label class="control-label"></label>-->
+                                            <textarea class="form-control" rows="5">{{response?.payload}}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button title="Response status" class="btn btn-success">{{response?.statusCode}}</button>
+                                <button title="Api latency" class="btn btn-warning">{{response?.latency}} ms</button>
+                            </div>
+                            <button type="submit" class="btn btn-danger pull-right">Ping</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+
+<div class="card">
+	<div class="card-header" data-background-color="purple">
+		<h4 class="title">Management</h4>
+		<p class="category">A little bit about why this api exist</p>
+	</div>
+<div class="card-content">
+    <form>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Desciption
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--<label>Why does this api exist?</label>-->
+                                        <div class="form-group form-black label-stacked is-empty">
+                                            <label class="control-label"> Why does this api exist? </label>
+                                            <textarea class="form-control" rows="3">{{metadata?.description}}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Management
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Manager</label>
+                                        <div class="form-group form-black label-stacked is-empty">
+                                            <!--<label class="control-label"> What the api is supposed to do, as described by the manager who provides requirements! </label>-->
+                                            <textarea class="form-control" rows="3" placeholder="What the api is supposed to do, as described by the manager who provides requirements!">{{metadata?.managerMessage}}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Developer</label>
+                                        <div class="form-group form-black label-stacked is-empty">
+                                            <label class="control-label"> What the api does, as described by developer who implemented it! </label>
+                                            <textarea class="form-control" rows="3">{{metadata?.developerMessage}}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <button type="submit" class="btn btn-default pull-right">Update</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+</div>
+
+<ng-template #loading>
+    <div class="loader">
+        <svg *ngIf="!errorMessage" class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+        <div *ngIf="errorMessage" class="text-danger" style="width: 400px; margin-left: -10em;">
+            {{errorMessage}}
+        </div>
+    </div>
+</ng-template>

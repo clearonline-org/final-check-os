@@ -1,0 +1,9 @@
+.stats {
+    width: 100%;
+}
+.stats span.logs {
+    float: right;
+}
+.card-footer:hover {
+    cursor: pointer;
+}

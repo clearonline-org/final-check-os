@@ -1,0 +1,14 @@
+<!--<link href="/assets/css/material-dashboard.css" rel="stylesheet" />-->
+<div class="wrapper">
+    <div class="sidebar" data-color='blue' data-active-color="blue" data-background-color="black" data-image="/assets/img/sidebar-4.jpg">
+        <app-module-sidebar></app-module-sidebar>
+        <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+    </div>
+    <div class="main-panel">
+        <app-module-navbar></app-module-navbar>
+        <router-outlet></router-outlet>
+        <div *ngIf="isMaps('/maps')">
+            <app-module-footer></app-module-footer>
+        </div>
+    </div>
+</div>

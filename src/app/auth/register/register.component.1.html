@@ -1,0 +1,80 @@
+<div class="main" style="background-image: url('/assets/img/default.jpg')">
+
+  <!--    Change the image source '/images/default.jpg' with your favourite image.     -->
+
+  <div class="cover blue" data-color="blue"></div>
+
+  <!--   You can change the black color for the filter with those colors: blue, green, red, orange       -->
+
+  <div class="container">
+
+    <!--  H1 can have 2 designs: "logo" and "logo cursive"           -->
+
+
+
+
+    <div class="content" style="padding-top: 18vh;">
+
+      <div class="modal fade login in shown" id="loginModal">
+        <div class="modal-dialog login animated">
+          <div class="modal-content">
+            <div class="modal-header">
+              <a href="/#/" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+              <h4 class="modal-title">Register</h4>
+              <!--<h4 class="modal-title">Register with</h4>-->
+            </div>
+            <div class="modal-body">
+              <div class="box">
+                <div class="content">
+                  <div class="social" style="display:none;">
+                    <a class="circle github" href="/auth/github">
+                      <i class="fa fa-github fa-fw"></i>
+                    </a>
+                    <a id="google_login" class="circle google" href="/auth/google_oauth2">
+                      <i class="fa fa-google-plus fa-fw"></i>
+                    </a>
+                    <a id="facebook_login" class="circle facebook" href="/auth/facebook">
+                      <i class="fa fa-facebook fa-fw"></i>
+                    </a>
+                  </div>
+                  <div class="division" style="display:none;">
+                    <div class="line l"></div>
+                    <span>or</span>
+                    <div class="line r"></div>
+                  </div>
+                  <div class="error"></div>
+
+                </div>
+              </div>
+              <div class="box">
+                <div class="content registerBox">
+                  <div class="form">
+                    <form method="post" html="{:multipart=>true}" data-remote="true" action="/register" accept-charset="UTF-8">
+                      <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                      <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                      <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
+                      <input class="btn btn-primary btn-register" type="submit" value="Create account" name="commit">
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="forgot register-footer">
+                <span>Already have an account?</span>
+                <a [routerLink]="['/login']">Login</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="footer">
+    <div class="container" style="margin-bottom: 0;">
+      Open source from <a target="_blank" href="https://clearonline.org">Clear Online</a>
+    </div>
+  </div>
+</div>

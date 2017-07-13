@@ -1,0 +1,10 @@
+{
+	"Access-Control-Allow-Origin": "*",
+	"Access-Control-Expose-Headers": "x-amzn-RequestId,x-amzn-ErrorType,x-amzn-ErrorMessage,Date",
+	"Content-Type": "application/x-amz-json-1.1",
+	"Date": "Thu, 13 Jul 2017 05:37:50 GMT",
+	"x-amzn-RequestId": "68d10e2e-678d-11e7-aa09-1151e426cc98",
+	"Content-Length": 1519,
+	"Connection": "keep-alive"
+}
+

@@ -1,0 +1,32 @@
+<!--
+@Author: mars
+@Date:   2017-02-05T21:12:26-05:00
+@Last modified by:   mars
+@Last modified time: 2017-02-10T02:12:17-05:00
+-->
+
+<div class="wrapper wrapper-full-page">
+    <div class="full-page login-page" filter-color="black" data-image="./assets/img/login.jpeg">
+
+
+
+<div class="main">
+
+    <div class="cover blue" data-color="blue"></div>
+
+<div class="loader" >
+  <svg *ngIf="!errorMessage" class="circular" viewBox="25 25 50 50">
+    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+  </svg>
+  <div *ngIf="errorMessage" class="text-danger" style="width: 400px; margin-left: -10em;">
+    {{errorMessage}}
+  </div>
+</div>
+</div>
+
+
+
+
+
+    </div>
+</div>
