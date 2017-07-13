@@ -1,10 +1,11 @@
 # Final Check OS
-
 Another API request monitoring tool - os for *Open Source*
+[![Build Status][travis-image]][travis-url] [![codecov][codecov-image]][codecov-url] [![Dependency Status][dependency-image]][dependency-url] [![Code Climate][climate-image]][climate-url] [![MIT License][license-image]][license-url]
 
 ## Goal
 * Ensure System is providing correct results to the good user.
 * Ensure System is providing correct error message to the bad user.
+
 
 ## Running Locally
 
