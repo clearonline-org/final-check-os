@@ -116,5 +116,5 @@ BSD-3-Clause
 [climate-image]: https://codeclimate.com/github/clearonline-org/final-check-os/badges/gpa.svg
 [climate-url]: https://codeclimate.com/github/clearonline-org/final-check-os
 
-[license-image]: http://img.shields.io/badge/license-BSD-3-Clause-blue.svg?style=flat
+[license-image]: https://img.shields.io/badge/license-BSD--3--Clause-blue.svg?style=flat
 [license-url]: LICENSE
