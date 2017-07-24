@@ -69,7 +69,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 }
 ```
 
-* ApiRequest
+* APIRequest
 ```javascript
 // api-request: represent the http request log (Final Check log)
 {
@@ -81,7 +81,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 }
 ```
 
-* ApiRequest Origin
+* APIRequest Origin
 ```javascript
 // request-origin: used to display all call origins on a world map
 {
@@ -95,7 +95,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## TODO
 * Implementing the data structure above
-* A map that shows locations of possible anomalies *error requests or bad clients* 
+* A map that shows locations of possible anomalies *error requests or bad clients*
   * This goes to the dashboard page
 * Fix API (design and implementation) for getting summarized data
 * A map that shows locations of each each request of a selected application.
