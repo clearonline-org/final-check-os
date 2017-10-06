@@ -272,7 +272,7 @@ export class ApiRequestManagerService {
 	}> {
 		// TODO create backend API that returns this information
 			const url = this.logSummaryApi;
-		// return this.makeGetRequest(url).catch(() => { OK200: [], ERROR500:[], OTHER3400:[] );
+		// return this.makeGetRequest(url).catch(() => ({ OK200: [], ERROR500:[], OTHER3400:[]}) );
 		return Promise.resolve({ OK200: [], ERROR500:[], OTHER3400:[] });
 	}
 
