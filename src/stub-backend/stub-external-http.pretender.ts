@@ -8,7 +8,7 @@ import { loginRequest as credIdRequest } from './http-request-fixtures/cognito-c
 import { loginRequest as idRequest } from './http-request-fixtures/cognito-identity/index';
 import { loginRequest as refreshRequest } from './http-request-fixtures/cognito-refresh/index';
 import { registerRequest } from './http-request-fixtures/cognito-register/index';
-import * as Pretender from 'pretender';
+import Pretender from 'pretender';
 
 export function startExternalStubPretender() {
 	const server = new Pretender();
@@ -30,7 +30,7 @@ export function startExternalStubPretender() {
 		'AWSCognitoIdentityProviderService.RefreshTokens': refreshRequest,
 		'AWSCognitoIdentityProviderService.SignUp': registerRequest,
 	};
-	function cognitoLogin(request) {
+	function cognitoLogin(request): Promise<any> {
 		const target = request.requestHeaders['X-Amz-Target'];
 		console.log(`[PRETENDER - aws cognito] ${request.method} ${request.url} - ${target}`);
 
