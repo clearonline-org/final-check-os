@@ -7,7 +7,6 @@ Another API request monitoring tool - os for *Open Source*
 * Ensure System is providing correct results to the good user.
 * Ensure System is providing correct error message to the bad user.
 
-
 ## Running Locally
 
 * Clone the repository `git clone https://github.com/<final-check-path>`
@@ -19,6 +18,7 @@ cp src/environments/environment.sample.ts src/environments/environment.prod.ts
 ```
 * Install dependancy `npm install`
 * Run development server `npm start`
+* Your should be able to access the site on [http://localhost:4200](http://localhost:4200)
 
 ### Notes:
 * We use a **Mock Service** to simulate the backend locally
@@ -26,6 +26,12 @@ cp src/environments/environment.sample.ts src/environments/environment.prod.ts
 # Look inside "src/stub-backend" folder
 # You can turn it off by removing the "stubBackend" attribute inside "src/environments/environment.ts" file
 ```
+
+* IMPORTANT: `Pretender@v2.0.0` comes with an `index.d.ts` file that is incomplete, please replace it with the provide one by running the command below. 
+```bash
+cp -rf custom/@types/pretender/index.d.ts node_modules/pretender/index.d.ts
+```
+
 * Testing credentials
 ```javascript
 email: test@example.com
