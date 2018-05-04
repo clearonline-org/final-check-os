@@ -10,12 +10,6 @@ Another API request monitoring tool - os for *Open Source*
 ## Running Locally
 
 * Clone the repository `git clone https://github.com/<final-check-path>`
-* Fix config files
-```bash
-cp src/environments/environment.sample.ts src/environments/environment.ts
-cp src/environments/environment.sample.ts src/environments/environment.prod.ts
-# for prod, make sure to set "stubBackend" to false so that production code uses real backend
-```
 * Install dependancy `npm install`
 * Run development server `npm start`
 * Your should be able to access the site on [http://localhost:4200](http://localhost:4200)
@@ -25,11 +19,7 @@ cp src/environments/environment.sample.ts src/environments/environment.prod.ts
 ```bash
 # Look inside "src/stub-backend" folder
 # You can turn it off by removing the "stubBackend" attribute inside "src/environments/environment.ts" file
-```
-
-* IMPORTANT: `Pretender@v2.0.0` comes with an `index.d.ts` file that is incomplete, please replace it with the provide one by running the command below. 
-```bash
-cp -rf custom/@types/pretender/index.d.ts node_modules/pretender/index.d.ts
+# for prod, make sure to set "stubBackend" to false so that production code uses real backend
 ```
 
 * Testing credentials
